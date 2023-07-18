@@ -1,4 +1,7 @@
+require_relative "crud"
+
 class Student
+	include Crud
 	attr_accessor :firstName, :lastName, :email, :username, :password
 
 	@firstName
@@ -23,4 +26,6 @@ end
 
 christian =  Student.new("Christian", "sdaas", "something@gmail.comm", "something", "asdjnsdjkfna")
 
-puts christian
+hashed_password = christian.create_hash_digest(christian.password)
+
+puts hashed_password
